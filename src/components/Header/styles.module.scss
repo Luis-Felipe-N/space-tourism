@@ -1,0 +1,199 @@
+.header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 1rem;
+    padding-top: 2rem;
+
+    position: fixed;
+
+    &__line {
+        max-width: 29.562rem;
+        width: 100%;
+        height: 1px;
+        background-color: var(--color-gray-500);
+        transform: translateX(2rem);
+        position: relative;
+        z-index: 2;
+    }
+    
+    &__logo {
+        width: 48px !important;
+        height: 48px !important;
+    }
+
+    &__menu {
+        position: relative;
+        max-width: 51.875rem;
+        width: 100%;
+        padding: 0 7%;
+
+        backdrop-filter: blur(1rem);
+        background-color: rgba(255, 255, 255, 4%);
+
+        ul {
+            display: flex;
+            list-style: none;
+        }
+
+        li a {
+            white-space: nowrap;
+            display: inline-block;
+            position: relative;
+            padding: 2rem 1.2rem;
+            color: var(--color-white);
+            letter-spacing: var(--letter-space);
+            text-transform: uppercase;
+            
+            span {
+                display: inline-block;
+                font-weight: bold;
+                margin-right: .5rem;
+            }
+            
+            &::after {
+                transition: .2s;
+                content: '';
+                position: absolute;
+                left: 0;
+                bottom: 0;
+                display: block;
+                background-color: var(--color-gray-500);
+                opacity: 0;
+            }
+            
+            &:hover {
+                &::after {
+                    width: 100%;
+                    height: 3px;
+                    opacity: 1;
+                }
+            }
+        }
+
+        .marker {
+            transition: .4s;
+            position: absolute;
+            bottom: 0;
+            width:102.656px;
+            height: 3px;
+            background-color: var(--color-white);
+        }
+    }
+
+    .btnMenu {
+        display: none;
+    }
+}
+
+@media (max-width: 780px) {
+    .header {
+        padding: 0;
+
+        &__line {
+            display: none;
+        }
+
+        &__menu {
+            width: auto;
+            padding: 0 5%;
+        }
+    }
+}
+
+@media (max-width: 620px) {
+    .header {
+        padding: 1rem 5%;
+        margin: 0;
+        z-index: 4;
+
+        &__menu {
+            height: 100vh;
+            position: absolute;
+            padding: 7rem 0;
+            width: 70vw;
+            top: 0;
+            bottom: 0;
+            right: -100%;
+            transition: .2s;
+
+            &.active {
+                right: 0;
+
+                ul {
+                    flex-direction: column;
+
+                    li a {
+                        width: 100%;
+                        padding: 1rem 2rem;
+
+                        &::after {
+                            right: 0;
+                        }
+                        
+                        &:hover {
+                            &::after {
+                                width: 2px;
+                                height: 100%;
+                                opacity: 1;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .marker {
+                transition: .4s;
+                position: absolute;
+                width: 2px;
+                background-color: var(--color-white);
+                right: 0;
+            }
+        }
+
+        .btnMenu {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: transparent;
+            border: 0;
+            border-radius: 100%;
+            transition: .2s;
+            z-index: 5;
+
+            span {
+                display: inline-block;
+                width: 35px;
+                height: 2px;
+                background-color: #fff;
+                position: relative;
+
+                &::after, &::before {
+                    content: '';
+                    position: absolute;
+                    display: inline-block;
+                    width: 100%;
+                    height: 100%;
+                    background-color: #fff;
+                    left: 0;
+                }
+
+                &::after {
+                    top: 10px;
+                }
+
+                &::before {
+                    bottom: 10px;
+                }
+            }
+
+            &:hover {
+                box-shadow: 0 0 0 10px rgba(255, 255, 255, 0.1);
+                background-color: rgba(255, 255, 255, 0.1);
+            }
+        }
+    }
+}

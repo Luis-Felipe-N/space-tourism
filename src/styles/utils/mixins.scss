@@ -1,0 +1,40 @@
+@mixin background-style($page) {
+    width: 100%;
+    min-height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-image: url(../../../public/assets/#{$page}/background-#{$page}-desktop.jpg);
+    padding: 4rem 5% 0;
+
+    display: grid;
+    place-items: center;
+
+    @media (max-width: 768px) {
+        background-image: url(../../../public/assets/#{$page}/background-#{$page}-tablet.jpg);
+    }
+
+    @media (max-width: 375px) {
+        background-image: url(../../../public/assets/#{$page}/background-#{$page}-mobile.jpg);
+    }
+}
+
+@mixin header-page {
+    h1 {
+        font-size: 1.5rem;
+        text-transform: uppercase;
+        font-weight: 300;
+        letter-spacing: 2px;
+
+        span {
+            font-weight: 600;
+            display: inline-block;
+            margin-right: 1rem;
+
+            color: var(--color-white-100);
+        }
+    }
+}
+
+// @media

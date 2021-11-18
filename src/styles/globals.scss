@@ -1,0 +1,45 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@media (max-width: 1080px) {
+  html {
+      font-size: 93.75%;
+  }
+}
+
+@media (max-width: 720px) {
+  html {
+      font-size: 87.5%;
+  }
+}
+
+:root {
+  // Cores
+  --color-white-100: #ffffff40;
+  --color-white: #fff;
+  --color-black: #0B0D17;
+
+  --color-gray-500: #979797;
+
+  // Fontes
+  --font-secondary: 'Bellefair', serif;
+
+  // Espaçamentos
+  --letter-space: 2px;
+}
+
+body {
+  color: var(--color-white);
+  font-family: 'Barlow Condensed', sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+}

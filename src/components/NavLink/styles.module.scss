@@ -1,0 +1,28 @@
+.navlink {
+    position: a
+    relative;
+    &::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: -.7rem;
+        display: block;
+        width: 0;
+        height: 3px;
+        transition: .2s;
+    }
+    
+    &.active {
+        &::after {
+            background-color: var(--color-white);
+            width: 100%;
+        }
+    }
+
+    &:hover {
+        &::after {
+            background-color: var(--color-white-100);
+            width: 100%;
+        }
+    }
+}
