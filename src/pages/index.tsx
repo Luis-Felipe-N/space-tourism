@@ -1,11 +1,13 @@
 import styles from '../styles/pages/home.module.scss'
 
 import { Button } from '../components/Button';
+import { Header } from '../components/Header';
 
 export default function Home() {
     return (
-        <>
-            <main className={styles.home}>
+        <div className={styles.container}>
+        <Header />
+            <main  className={styles.home}>
                 <section className={styles.home__container}>
                     <div>
                         <h3>É isso, você quer viajar para o</h3>
@@ -15,6 +17,6 @@ export default function Home() {
                     <Button>Explorar</Button>
                 </section>
             </main>
-        </>
+        </div>
     )
 }

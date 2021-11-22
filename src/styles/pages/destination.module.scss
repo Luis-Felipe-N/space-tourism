@@ -1,13 +1,13 @@
 @use '../utils/mixins.scss' as * ;
 
-.destination {
-    background-image: url(../../../public/assets/destination/background-destination-desktop.jpg);
+.container {
     @include background-style(destination);
-    main {
-        max-width: 1150px;
-        width: 100%;
-        margin: 2rem auto 0;
-    }
+}
+.destination {
+    padding: 2rem 5%;
+    max-width: 1150px;
+    width: 100%;
+    margin: 0 auto;
 
     &__header {
         @include header-page;
@@ -24,6 +24,8 @@
         width: 100%;
     }
     &__content {
+        display: flex;
+        flex-direction: column;
         max-width: 500px;
         width: 100%;
 
@@ -85,6 +87,18 @@
                     margin-top: .5rem;
                 }
             }
+        }
+    }
+}
+
+@media (max-width: 850px) {
+    .destination {
+        &__container {
+            flex-direction: column;
+        }
+        &__content {
+            align-items: center;
+            text-align: center;
         }
     }
 }

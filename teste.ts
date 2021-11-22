@@ -1,1 +1,5 @@
-import { Client } from 'grpc'
+export function Arroz(agua: number) {
+
+}
+
+Arroz(21)

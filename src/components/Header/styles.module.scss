@@ -5,8 +5,9 @@
     align-items: center;
     margin-left: 1rem;
     padding-top: 2rem;
+    z-index: 4;
 
-    position: fixed;
+    // position: sticky;
 
     &__line {
         max-width: 29.562rem;
@@ -106,7 +107,6 @@
     .header {
         padding: 1rem 5%;
         margin: 0;
-        z-index: 4;
 
         &__menu {
             height: 100vh;

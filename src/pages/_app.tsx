@@ -4,7 +4,7 @@ import '../styles/globals.scss'
 function MyApp({ Component, pageProps }: any) {
   return (
     <>
-      <Header />
+      {/* <Header /> */}
       <Component {...pageProps} />
     </>
   )

@@ -16,6 +16,7 @@
   }
 }
 
+
 :root {
   // Cores
   --color-white-100: #ffffff40;
@@ -42,4 +43,8 @@ a {
 
 button {
   cursor: pointer;
+}
+
+li.active {
+  background-color: var(--color-white) !important;
 }

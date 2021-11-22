@@ -4,6 +4,8 @@ import Head from 'next/head'
 import { NavLink } from '../../components/NavLink'
 import styles from '../../styles/pages/destination.module.scss'
 import { useEffect, useState } from 'react'
+import { GetStaticPaths, GetStaticProps } from 'next'
+import { Header } from '../../components/Header'
 
 
 interface IDestination {
@@ -16,25 +18,18 @@ interface IDestination {
     travel: string
 }
 
-export default function Destionation() {
-    const [ destination, setDestination ] = useState<IDestination>()
+export default function Destionation({destination}) {
+    console.log(destination)
 
     const router = useRouter()
-    useEffect(() => {
-        const {slug} = router.query
-
-        fetch(`http://localhost:3000/api/destination/${slug}`)
-        .then( response => response.json())
-        .then( responseJson => setDestination(responseJson))
-
-    }, [router.query])
 
     return (
         <>
         <Head>
         </Head>
-        <div className={styles.destination}>
-           <main>
+        <div className={styles.container}>
+            <Header/>
+           <main className={styles.destination}>
                 <header className={styles.destination__header}>
                     <h1>
                         <span aria-hidden="true">01</span>
@@ -51,10 +46,11 @@ export default function Destionation() {
                     
                     <section className={styles.destination__container}>
                         <Image 
+                                                                                                                                                                                                                                                                                                                        title={destination.name}
                             src={destination.images.png}
                             width={350}
                             height={350}
-                            alt="oi"
+                            alt={`Imagem de um corpo celeste: ${destination.name}`}
                         />
                         <div className={styles.destination__content}>
                             <nav className={styles.destination__content_header}>
@@ -113,4 +109,26 @@ export default function Destionation() {
         </div>
         </>
     )
+}
+
+export const getStaticPaths: GetStaticPaths = () => {
+    const destinations = ['moon', 'mars', 'europa', 'titan']
+    const paths = destinations.map( destination => ({params: {slug: destination}}))
+
+    return {
+        paths,
+        fallback: true
+    }
+}
+
+export const getStaticProps: GetStaticProps = async ({params}) => {
+    const {slug} = params
+    const response = await fetch(`http://localhost:3000/api/destination/${slug}`)
+    const destination = await response.json()
+
+    return {
+        props: {
+            destination
+        }
+    }
 }

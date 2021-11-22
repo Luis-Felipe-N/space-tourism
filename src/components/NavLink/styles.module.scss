@@ -1,11 +1,9 @@
 .navlink {
-    position: a
-    relative;
+    position: relative;
     &::after {
         content: '';
         position: absolute;
-        left: 0;
-        bottom: -.7rem;
+
         display: block;
         width: 0;
         height: 3px;
