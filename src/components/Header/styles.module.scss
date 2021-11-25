@@ -5,8 +5,6 @@
     align-items: center;
     margin-left: 1rem;
     padding-top: 2rem;
-    z-index: 4;
-
     // position: sticky;
 
     &__line {
@@ -25,12 +23,13 @@
     }
 
     &__menu {
+        z-index: 2;
         position: relative;
         max-width: 51.875rem;
         width: 100%;
         padding: 0 7%;
 
-        backdrop-filter: blur(1rem);
+        backdrop-filter: blur(20px);
         background-color: rgba(255, 255, 255, 4%);
 
         ul {
@@ -107,10 +106,11 @@
     .header {
         padding: 1rem 5%;
         margin: 0;
+        z-index: 2;
 
         &__menu {
             height: 100vh;
-            position: absolute;
+            position: fixed;
             padding: 7rem 0;
             width: 70vw;
             top: 0;
@@ -153,6 +153,9 @@
         }
 
         .btnMenu {
+            position: sticky;
+            top: 1rem;
+            // right: 5%;
             display: flex;
             align-items: center;
             justify-content: center;

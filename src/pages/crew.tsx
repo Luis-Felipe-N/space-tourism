@@ -19,19 +19,24 @@ export default function Crew({crews}) {
     const [ crewCurrent, setCrewCurrent ] = useState<ICrew>()
     const labelsRef = useRef<HTMLUListElement>(null)
 
-    function handleMoveSlider( target: HTMLElement, index: number ) {
-        labelsRef.current.querySelectorAll('li').forEach( li => li.classList.remove('active'))
-        target.classList.add('active')
+    function handleMoveSlider( target: any, index: number ) {
+        labelsRef.current.querySelectorAll('button').forEach( btnSlider => {
+            btnSlider.classList.remove('activeSlider')
+            btnSlider.removeAttribute('aria-current')
+        })
+        target.classList.add('activeSlider')
+        target.setAttribute('aria-current', "true")
         setSliderCurrentIndex(index)
     }
 
     useEffect(() => {
+        console.log(labelsRef.current)  
         if ( labelsRef.current ) {
             labelsRef.current.querySelectorAll('li').forEach( (li, index) => {
                 li.addEventListener('click', ({target}) => {handleMoveSlider(target, index)})
             })
         }
-    }, [labelsRef])
+    }, [labelsRef, crewCurrent])
 
     useEffect(() => {
         console.log('espero q esteja em loop')
@@ -50,34 +55,45 @@ export default function Crew({crews}) {
                     </h1>
                 </header>
 
-                {
-                    crewCurrent && (
-                        <section className={styles.crew__content}>
+                <section className={styles.crew__content}>
                     <div className={styles.slider}>
                         <div className={styles.slider__container}>
-                            <div className={styles.slider__container_info}>
-                                <h2>{crewCurrent.role}</h2>
-                                <h1>{crewCurrent.name}</h1>
+                            {
+                                crewCurrent && (
+                                    <div className={styles.slider__container_info}>
+                                        <h2>{crewCurrent.role}</h2>
+                                        <h1>{crewCurrent.name}</h1>
 
-                                <p>{crewCurrent.bio}</p>
-                            </div>
+                                        <p>{crewCurrent.bio}</p>
+                                    </div>
+                                )
+                            }
 
-                            <ul className={styles.slider__container_labels} ref={labelsRef}>
-                                <li className="active"></li>
-                                <li></li>
-                                <li></li>
-                                <li></li>
+
+                            <ul aria-label="Navegação do slider" className={styles.slider__container_labels} ref={labelsRef}>
+                                <li>
+                                    <button  className="activeSlider" aria-current="true"></button>
+                                </li>
+                                <li>
+                                    <button></button>
+                                </li>
+                                <li>
+                                    <button></button>
+                                </li>
+                                <li>
+                                    <button></button>
+                                </li>
                             </ul>
                         </div>
 
-                        <img 
-                            src={crewCurrent.images.png}
-                            alt={`Imagem de uma pessoa: ${crewCurrent.name}`}
-                        />
+                        { crewCurrent && (
+                            <img 
+                                src={crewCurrent.images.png}
+                                alt={`Imagem de uma pessoa: ${crewCurrent.name}`}
+                            />
+                        )}
                     </div>
                 </section>
-                    )
-                }
             </main>
         </div>
     )
