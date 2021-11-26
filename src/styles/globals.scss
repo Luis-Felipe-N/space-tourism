@@ -20,12 +20,14 @@
 :root {
   // Cores
   --color-white-100: #ffffff40;
+  --color-white-500: #d0d6f9;
   --color-white: #fff;
   --color-black: #0B0D17;
 
   --color-gray-500: #979797;
 
   // Fontes
+  --fonts-primary:  'Barlow Condensed', sans-serif;
   --font-secondary: 'Bellefair', serif;
 
   // Espaçamentos
@@ -34,7 +36,7 @@
 
 body {
   color: var(--color-white);
-  font-family: 'Barlow Condensed', sans-serif;
+  font-family: var(--fonts-primary);
   overflow-x: hidden;
 }
 
@@ -48,4 +50,10 @@ button {
 
 ul li button.activeSlider {
   background-color: var(--color-white) !important;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-secondary);
+  font-weight: 400;
+  text-transform: uppercase;
 }

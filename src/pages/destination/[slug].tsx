@@ -29,7 +29,7 @@ export default function Destionation({destination}: IDestinationProps) {
         <>
         <Head>
             <title>
-                {destination.name}
+                {destination.name} :: Destino
             </title>
         </Head>
         <div className={styles.container}>

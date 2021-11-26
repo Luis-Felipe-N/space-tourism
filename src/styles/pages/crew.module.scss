@@ -70,6 +70,10 @@
                             background-color: var(--color-gray-500);
                         }
                     }
+
+                    li.active button {
+                        background-color: var(--color-white);
+                    }
                 }
             }
 
