@@ -1,6 +1,6 @@
 import styles from './styles.module.scss'
 interface IButtonProps {
-    children: any
+    children: any;
 }
 
 export function Button({children, ...props}: IButtonProps) {

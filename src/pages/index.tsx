@@ -1,3 +1,5 @@
+import Head from 'next/head'
+
 import styles from '../styles/pages/home.module.scss'
 
 import { Button } from '../components/Button';
@@ -5,6 +7,12 @@ import { Header } from '../components/Header';
 
 export default function Home() {
     return (
+        <>
+        <Head>
+            <title>
+                Space :: Inicio
+            </title>
+        </Head>
         <div className={styles.container}>
         <Header />
             <main  className={styles.home}>
@@ -18,5 +26,6 @@ export default function Home() {
                 </section>
             </main>
         </div>
+        </>
     )
 }

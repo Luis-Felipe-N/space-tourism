@@ -1,5 +1,6 @@
 import { createRef, useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 
 import styles from './styles.module.scss'
 import { NavLink } from '../NavLink'
@@ -12,9 +13,15 @@ export function Header() {
         setOpenMenu(!openMenu)
     }
 
+    useEffect(() => {
+        if ( !openMenu ) {
+            // ulRef.current.querySelectorAll('a').forEach( a => a.setAttribute("tabindex", "-1"))
+        }
+    },[openMenu])
+
     return (
         <header className={styles.header}>
-            <img 
+            <Image 
                 // layout="fixed"
                 width={50}
                 height={50}
@@ -23,11 +30,19 @@ export function Header() {
                 alt="Logo: Ilustração de uma estrela de quatro pontas." 
             /> 
             <div className={styles.header__line}></div>
+            <button
+                className={styles.btnMenu}
+                onClick={handleOpenMenu}
+                tabIndex={0}
+            >
+                <span></span>
+            </button>
             <nav className={openMenu ? `${styles.header__menu} ${styles.active}` : styles.header__menu}>
-                <ul ref={ulRef}  >
+                <ul ref={ulRef}>
                     <li>
                         <Link href="/">
                                 <a>
+                                    
                                     <span aria-hidden="true">00</span> 
                                     Início
                                 </a>
@@ -59,12 +74,6 @@ export function Header() {
                     </li>
                 </ul>
             </nav>
-            <button
-                className={styles.btnMenu}
-                onClick={handleOpenMenu}
-            >
-                <span></span>
-            </button>
       </header>
     )
 }

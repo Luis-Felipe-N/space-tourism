@@ -15,6 +15,7 @@ export function NavLink({to, children}: INavLinkProps) {
     return (
         <Link href={to}>
             <a 
+                aria-label={path.includes(to) ? `Página atual, página sobre ${to}`: `Página sobre ${to}`}
                 className={path.includes(to) ? `${styles.navlink} ${styles.active}`  : styles.navlink} 
             >
                 {children}

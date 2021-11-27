@@ -29,7 +29,7 @@ export default function Destionation({destination}: IDestinationProps) {
         <>
         <Head>
             <title>
-                {destination.name} :: Destino
+                {destination?.name} :: Destino
             </title>
         </Head>
         <div className={styles.container}>
@@ -54,30 +54,22 @@ export default function Destionation({destination}: IDestinationProps) {
                             <ul role="navigation">
                                 <li>
                                     <NavLink to="moon">
-                                        <a>
-                                            Lua
-                                        </a>
+                                        Lua
                                     </NavLink>
                                 </li>
                                 <li>
                                     <NavLink to="mars">
-                                        <a>
-                                            Marte
-                                        </a>
+                                        Marte
                                     </NavLink>
                                 </li>
                                 <li>
                                     <NavLink to="europa">
-                                        <a>
-                                            Europa
-                                        </a>
+                                        Europa
                                     </NavLink>
                                 </li>
                                 <li>
                                     <NavLink to="titan">
-                                        <a>
-                                            Titan
-                                        </a>
+                                        Titan
                                     </NavLink>
                                 </li>
                             </ul>
@@ -110,7 +102,7 @@ export const getStaticPaths: GetStaticPaths = () => {
 
     return {
         paths,
-        fallback: true
+        fallback: false
     }
 }
 
@@ -119,9 +111,15 @@ export const getStaticProps: GetStaticProps = async ({params}) => {
     const response = await fetch(`http://localhost:3000/api/destination/${slug}`)
     const destination = await response.json()
 
-    return {
-        props: {
-            destination
+    if (destination) {
+        return {
+            props: {
+                destination
+            }
+        }
+    } else {
+        return {
+            notFound: true
         }
     }
 }
