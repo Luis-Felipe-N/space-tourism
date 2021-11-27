@@ -13,16 +13,10 @@ export function Header() {
         setOpenMenu(!openMenu)
     }
 
-    useEffect(() => {
-        if ( !openMenu ) {
-            // ulRef.current.querySelectorAll('a').forEach( a => a.setAttribute("tabindex", "-1"))
-        }
-    },[openMenu])
 
     return (
         <header className={styles.header}>
-            <Image 
-                // layout="fixed"
+            <img
                 width={50}
                 height={50}
                 className={styles.header__logo} 
