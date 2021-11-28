@@ -1,7 +1,8 @@
 
+import axios from 'axios'
 import { GetStaticProps } from 'next'
 import Head from 'next/head'
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Header } from '../components/Header'
 import styles from '../styles/pages/crew.module.scss'
 
@@ -17,7 +18,6 @@ interface ICrew {
 export default function Crew({crews}) {
     const [ currentSliderIndex, setCurrentSliderIndex ] = useState(0)
     const [ currentCrew, setCurrentCrew ] = useState<ICrew>()
-    const labelsRef = useRef<HTMLUListElement>(null)
 
     function handleMoveSlider( target: any, index: number ) {
         setCurrentSliderIndex(index)
@@ -81,7 +81,9 @@ export default function Crew({crews}) {
                         </div>
 
                         { currentCrew && (
-                            <img 
+                            // eslint-disable-next-line @next/next/no-img-element
+                            <img
+                                title={currentCrew.name}
                                 src={currentCrew.images.png}
                                 alt={`Imagem de uma pessoa: ${currentCrew.name}`}
                             />
@@ -96,8 +98,8 @@ export default function Crew({crews}) {
 
 export const getStaticProps: GetStaticProps = async () => {
 
-    const response = await fetch('http://localhost:3000/api/crew')
-    const crews: ICrew[] = await response.json()
+    const response = await axios.get('/api/crew')
+    const crews: ICrew[] = await response.data
 
     return {
         props: {

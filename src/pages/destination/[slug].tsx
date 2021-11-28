@@ -6,6 +6,7 @@ import styles from '../../styles/pages/destination.module.scss'
 import { useEffect, useState } from 'react'
 import { GetStaticPaths, GetStaticProps } from 'next'
 import { Header } from '../../components/Header'
+import axios from 'axios'
 
 
 interface IDestination {
@@ -23,7 +24,6 @@ interface IDestinationProps {
 }
 
 export default function Destionation({destination}: IDestinationProps) {
-    const router = useRouter()
 
     return (
         <>
@@ -43,7 +43,7 @@ export default function Destionation({destination}: IDestinationProps) {
                 </header>                    
                 <section className={styles.destination__container}>
                     <Image 
-                                                                                                                                                                                                                                                                                                                    title={destination.name}
+                        title={destination.name}
                         src={destination.images.png}
                         width={350}
                         height={350}
@@ -108,8 +108,8 @@ export const getStaticPaths: GetStaticPaths = () => {
 
 export const getStaticProps: GetStaticProps = async ({params}) => {
     const {slug} = params
-    const response = await fetch(`http://localhost:3000/api/destination/${slug}`)
-    const destination = await response.json()
+    const response = await axios.get(`/api/destinations/${slug}`)
+    const destination = await response.data
 
     if (destination) {
         return {

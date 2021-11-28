@@ -6,9 +6,10 @@ import { ReactNode } from 'react'
 interface INavLinkProps {
     to: string,
     children: ReactNode,
+    tabIndex?:number;
 }
 
-export function NavLink({to, children}: INavLinkProps) {
+export function NavLink({to, children, ...rest}: INavLinkProps) {
     const router = useRouter()
     const path = router.asPath
 
@@ -17,6 +18,7 @@ export function NavLink({to, children}: INavLinkProps) {
             <a 
                 aria-label={path.includes(to) ? `Página atual, página sobre ${to}`: `Página sobre ${to}`}
                 className={path.includes(to) ? `${styles.navlink} ${styles.active}`  : styles.navlink} 
+                {...rest}
             >
                 {children}
             </a>

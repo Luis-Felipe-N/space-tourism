@@ -1,3 +1,5 @@
+/* eslint-disable @next/next/no-img-element */
+import axios from 'axios'
 import { GetStaticProps } from 'next'
 import { useEffect, useRef, useState } from 'react'
 import { Header } from '../components/Header'
@@ -88,8 +90,8 @@ export default function Technology({technologies}: ITechnologyProps) {
 
 export const getStaticProps: GetStaticProps = async () => {
 
-    const response = await fetch('http://localhost:3000/api/technology')
-    const technologies: ITechnology[] = await response.json()
+    const response = await axios.get('/api/technology')
+    const technologies: ITechnology[] = await response.data
 
     return {
         props: {

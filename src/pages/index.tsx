@@ -20,7 +20,7 @@ export default function Home() {
                     <div>
                         <h3>É isso, você quer viajar para o</h3>
                         <h1>Espaço</h1>
-                        <p>Let’s face it; if you want to go to space, you might as well genuinely go to outer space and not hover kind of on the edge of it. Well sit back, and relax because we’ll give you a truly out of this world experience!</p>
+                        <p>Vamos encarar; se você quiser ir para o espaço, é melhor ir genuinamente para o espaço sideral e não ficar pairando sobre ele. Bem, sente-se e relaxe, porque nós vamos dar a você uma experiência verdadeiramente fora deste mundo!</p>
                     </div>
                     <Button>Explorar</Button>
                 </section>

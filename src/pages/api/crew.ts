@@ -5,8 +5,8 @@ const crew = [
             "png": "/assets/crew/image-douglas-hurley.png",
             "webp": "./assets/crew/image-douglas-hurley.webp"
           },
-          "role": "Commander",
-          "bio": "Douglas Gerald Hurley is an American engineer, former Marine Corps pilot and former NASA astronaut. He launched into space for the third time as commander of Crew Dragon Demo-2."
+          "role": "Comandante",
+          "bio": "Douglas Gerald Hurley é um engenheiro americano, ex-piloto do Corpo de Fuzileiros Navais e ex-astronauta da NASA. Ele se lançou ao espaço pela terceira vez como comandante da Crew Dragon Demo-2."
         },
         {
           "name": "Mark Shuttleworth",
@@ -14,8 +14,8 @@ const crew = [
             "png": "/assets/crew/image-mark-shuttleworth.png",
             "webp": "./assets/crew/image-mark-shuttleworth.webp"
           },
-          "role": "Mission Specialist",
-          "bio": "Mark Richard Shuttleworth is the founder and CEO of Canonical, the company behind the Linux-based Ubuntu operating system. Shuttleworth became the first South African to travel to space as a space tourist."
+          "role": "Especialista da missão",
+          "bio": "Mark Richard Shuttleworth é o fundador e CEO da Canonical, a empresa por trás do sistema operacional Ubuntu baseado em Linux. Shuttleworth se tornou o primeiro sul-africano a viajar ao espaço como turista espacial."
         },
         {
           "name": "Victor Glover",
@@ -23,8 +23,8 @@ const crew = [
             "png": "/assets/crew/image-victor-glover.png",
             "webp": "./assets/crew/image-victor-glover.webp"
           },
-          "role": "Pilot",
-          "bio": "Pilot on the first operational flight of the SpaceX Crew Dragon to the International Space Station. Glover is a commander in the U.S. Navy where he pilots an F/A-18.He was a crew member of Expedition 64, and served as a station systems flight engineer."
+          "role": "Piloto",
+          "bio": "Piloto no primeiro vôo operacional do SpaceX Crew Dragon para a Estação Espacial Internacional. Glover é comandante da Marinha dos Estados Unidos, onde pilota um F / A-18. Ele foi membro da tripulação da Expedição 64 e atuou como engenheiro de vôo de sistemas de estação."
         },
         {
           "name": "Anousheh Ansari",
@@ -32,8 +32,8 @@ const crew = [
             "png": "/assets/crew/image-anousheh-ansari.png",
             "webp": "./assets/crew/image-anousheh-ansari.webp"
           },
-          "role": "Flight Engineer",
-          "bio": "Anousheh Ansari is an Iranian American engineer and co-founder of Prodea Systems. Ansari was the fourth self-funded space tourist, the first self-funded woman to fly to the ISS, and the first Iranian in space."
+          "role": "Engenheira de voo",
+          "bio": "Anousheh Ansari é uma engenheira iraniana-americana e cofundadora da Prodea Systems. Ansari foi a quarta turista espacial autofinanciada, a primeira mulher autofinanciada a voar para a ISS e a primeira iraniana no espaço."
         }
       ]
 

@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import { createRef, useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
@@ -36,7 +37,6 @@ export function Header() {
                     <li>
                         <Link href="/">
                                 <a>
-                                    
                                     <span aria-hidden="true">00</span> 
                                     Início
                                 </a>
