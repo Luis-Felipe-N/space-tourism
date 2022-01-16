@@ -55,4 +55,4 @@ export default function handle(req, res) {
     } else {
         res.status(400).end()
     }
-}
+  }

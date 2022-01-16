@@ -20,7 +20,7 @@ interface ITechnologyProps {
 }
 
 export default function Technology({technologies}: ITechnologyProps) {
-    console.log(technologies)
+    
     const [ currentTechnology, setCurrentTechnology ] = useState<ITechnology>()
     const [ currentSliderIndex, setCurrentSliderIndex ] = useState(0)
 
@@ -90,7 +90,7 @@ export default function Technology({technologies}: ITechnologyProps) {
 
 export const getStaticProps: GetStaticProps = async () => {
 
-    const response = await axios.get('http://localhost:3001/api/technology')
+    const response = await axios.get('http://localhost:3000/api/technology')
     const technologies: ITechnology[] = await response.data
 
     return {

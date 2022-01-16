@@ -108,7 +108,7 @@ export const getStaticPaths: GetStaticPaths = () => {
 
 export const getStaticProps: GetStaticProps = async ({params}) => {
     const {slug} = params
-    const response = await axios.get(`http://localhost:3001/api/destinations/${slug}`)
+    const response = await axios.get(`http://localhost:3000/api/destinations/${slug}`)
     const destination = await response.data
 
     if (destination) {
