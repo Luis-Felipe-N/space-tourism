@@ -1,9 +1,10 @@
 
-import axios from 'axios'
+
 import { GetStaticProps } from 'next'
 import Head from 'next/head'
 import { useEffect, useState } from 'react'
 import { Header } from '../components/Header'
+import { api } from '../services/api'
 import styles from '../styles/pages/crew.module.scss'
 
 interface ICrew {
@@ -98,7 +99,7 @@ export default function Crew({crews}) {
 
 export const getStaticProps: GetStaticProps = async () => {
 
-    const response = await axios.get('http://localhost:3000/api/crew')
+    const response = await api.get('api/crew')
     const crews: ICrew[] = await response.data
 
     return {

@@ -3,6 +3,7 @@ import axios from 'axios'
 import { GetStaticProps } from 'next'
 import { useEffect, useRef, useState } from 'react'
 import { Header } from '../components/Header'
+import { api } from '../services/api'
 import styles from '../styles/pages/technology.module.scss'
 
 interface ITechnology {
@@ -90,7 +91,7 @@ export default function Technology({technologies}: ITechnologyProps) {
 
 export const getStaticProps: GetStaticProps = async () => {
 
-    const response = await axios.get('http://localhost:3000/api/technology')
+    const response = await api.get('api/technology')
     const technologies: ITechnology[] = await response.data
 
     return {

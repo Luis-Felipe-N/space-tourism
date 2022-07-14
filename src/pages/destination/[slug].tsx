@@ -7,6 +7,7 @@ import { useEffect, useState } from 'react'
 import { GetStaticPaths, GetStaticProps } from 'next'
 import { Header } from '../../components/Header'
 import axios from 'axios'
+import { api } from '../../services/api'
 
 
 interface IDestination {
@@ -108,7 +109,7 @@ export const getStaticPaths: GetStaticPaths = () => {
 
 export const getStaticProps: GetStaticProps = async ({params}) => {
     const {slug} = params
-    const response = await axios.get(`http://localhost:3000/api/destinations/${slug}`)
+    const response = await api.get(`api/destinations/${slug}`)
     const destination = await response.data
 
     if (destination) {
