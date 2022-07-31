@@ -1,0 +1,115 @@
+{
+    "crewsJson": [
+        {
+          "name": "Douglas Hurley",
+          "images": {
+            "png": "/assets/crew/image-douglas-hurley.png",
+            "webp": "./assets/crew/image-douglas-hurley.webp"
+          },
+          "role": "Comandante",
+          "bio": "Douglas Gerald Hurley é um engenheiro americano, ex-piloto do Corpo de Fuzileiros Navais e ex-astronauta da NASA. Ele se lançou ao espaço pela terceira vez como comandante da Crew Dragon Demo-2."
+        },
+        {
+          "name": "Mark Shuttleworth",
+          "images": {
+            "png": "/assets/crew/image-mark-shuttleworth.png",
+            "webp": "./assets/crew/image-mark-shuttleworth.webp"
+          },
+          "role": "Especialista da missão",
+          "bio": "Mark Richard Shuttleworth é o fundador e CEO da Canonical, a empresa por trás do sistema operacional Ubuntu baseado em Linux. Shuttleworth se tornou o primeiro sul-africano a viajar ao espaço como turista espacial."
+        },
+        {
+          "name": "Victor Glover",
+          "images": {
+            "png": "/assets/crew/image-victor-glover.png",
+            "webp": "./assets/crew/image-victor-glover.webp"
+          },
+          "role": "Piloto",
+          "bio": "Piloto no primeiro vôo operacional do SpaceX Crew Dragon para a Estação Espacial Internacional. Glover é comandante da Marinha dos Estados Unidos, onde pilota um F / A-18. Ele foi membro da tripulação da Expedição 64 e atuou como engenheiro de vôo de sistemas de estação."
+        },
+        {
+          "name": "Anousheh Ansari",
+          "images": {
+            "png": "/assets/crew/image-anousheh-ansari.png",
+            "webp": "./assets/crew/image-anousheh-ansari.webp"
+          },
+          "role": "Engenheira de voo",
+          "bio": "Anousheh Ansari é uma engenheira iraniana-americana e cofundadora da Prodea Systems. Ansari foi a quarta turista espacial autofinanciada, a primeira mulher autofinanciada a voar para a ISS e a primeira iraniana no espaço."
+        }
+    ],
+    "destinationJson": [
+        {
+          "slug": "moon",
+          "name": "Lua",
+          "images": {
+            "png": "/assets/destination/image-moon.png",
+            "webp": "./assets/destination/image-moon.webp"
+          },
+          "description": "See our planet as you’ve never seen it before. A perfect relaxing trip away to help regain perspective and come back refreshed. While you’re there, take in some history by visiting the Luna 2 and Apollo 11 landing sites.",
+          "distance": "384,400 km",
+          "travel": "3 dias"
+        },
+        {
+          "slug": "mars",
+          "name": "Marte",
+          "images": {
+            "png": "/assets/destination/image-mars.png",
+            "webp": "./assets/destination/image-mars.webp"
+          },
+          "description": "Don’t forget to pack your hiking boots. You’ll need them to tackle Olympus Mons, the tallest planetary mountain in our solar system. It’s two and a half times the size of Everest!",
+          "distance": "225 mil. km",
+          "travel": "9 Mês"
+        },
+        {
+          "slug": "europa",
+          "name": "Europa",
+          "images": {
+            "png": "/assets/destination/image-europa.png",
+            "webp": "./assets/destination/image-europa.webp"
+          },
+          "description": "The smallest of the four Galilean moons orbiting Jupiter, Europa is a winter lover’s dream. With an icy surface, it’s perfect for a bit of ice skating, curling, hockey, or simple relaxation in your snug wintery cabin.",
+          "distance": "628 mil. km",
+          "travel": "3 anos"
+        },
+        {
+          "slug": "titan",
+          "name": "Titan",
+          "images": {
+            "png": "/assets/destination/image-titan.png",
+            "webp": "./assets/destination/image-titan.webp"
+          },
+          "description": "The only moon known to have a dense atmosphere other than Earth, Titan is a home away from home (just a few hundred degrees colder!). As a bonus, you get striking views of the Rings of Saturn.",
+          "distance": "1.6 bil. km",
+          "travel": "7 anos"
+        }
+    ],
+    "technologyJson":  [
+        {
+          "name": "Foguete",
+          "images": {
+            "portrait": "./assets/technology/image-launch-vehicle-portrait.jpg",
+            "landscape": "./assets/technology/image-launch-vehicle-landscape.jpg",
+            "alt": "Um foguete prestes a ser lançado."
+          },
+          "description": "Um veículo de lançamento ou foguete é um veículo propelido por foguete usado para transportar uma carga útil da superfície da Terra para o espaço, geralmente para a órbita da Terra ou além. Nosso foguete portador WEB-X é o mais poderoso em operação. Com 150 metros de altura, é uma visão bastante inspiradora na plataforma de lançamento!"
+        },
+        {
+          "name": "Porto espacial",
+          "images": {
+            "portrait": "./assets/technology/image-spaceport-portrait.jpg",
+            "landscape": "./assets/technology/image-spaceport-landscape.jpg",
+            "alt": "Porto espacial com foguete sendo preparado por trabalhadores."
+          },
+          "description": "Um porto espacial ou cosmódromo é um local para lançamento (ou recebimento) de espaçonaves, por analogia ao porto marítimo para navios ou aeroporto para aeronaves. Com base no famoso Cabo Canaveral, nosso espaçoporto está idealmente situado para aproveitar a rotação da Terra para o lançamento."
+        },
+        {
+          "name": "Cápsula espacial",
+          "images": {
+            "portrait": "./assets/technology/image-space-capsule-portrait.jpg",
+            "landscape": "./assets/technology/image-space-capsule-landscape.jpg",
+            "alt": "Cápsula espacial branca no espaço."
+          },
+          "description": "Uma cápsula espacial é uma espaçonave freqüentemente tripulada que usa uma cápsula de reentrada de corpo cego para reentrar na atmosfera da Terra sem asas. Nossa cápsula é onde você passará seu tempo durante o vôo. Inclui um ginásio espacial, cinema e muitas outras actividades para o manter entretido."
+        }
+    ]
+}

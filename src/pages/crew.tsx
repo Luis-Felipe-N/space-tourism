@@ -1,11 +1,12 @@
 
 
-import { GetStaticProps } from 'next'
 import Head from 'next/head'
 import { useEffect, useState } from 'react'
 import { Header } from '../components/Header'
-import { api } from '../services/api'
 import styles from '../styles/pages/crew.module.scss'
+
+
+import { crewsJson } from '../../db.json'
 
 interface ICrew {
     name: string;
@@ -16,17 +17,24 @@ interface ICrew {
     bio: string
 }
 
-export default function Crew({crews}) {
+export default function Crew() {
     const [ currentSliderIndex, setCurrentSliderIndex ] = useState(0)
     const [ currentCrew, setCurrentCrew ] = useState<ICrew>()
+    const [ crews, setCrews ] = useState<ICrew[]>()
 
-    function handleMoveSlider( target: any, index: number ) {
+    function handleMoveSlider(index: number ) {
         setCurrentSliderIndex(index)
     }
 
     useEffect(() => {
-        const crew = crews[currentSliderIndex]
-        setCurrentCrew(crew)
+        setCrews(crewsJson)
+    }, [])
+
+    useEffect(() => {
+        if ( crews ) {
+            const crew = crews[currentSliderIndex]
+            setCurrentCrew(crew)
+        }
     },[currentSliderIndex, crews])
 
     return (
@@ -63,12 +71,13 @@ export default function Crew({crews}) {
 
                             <ul aria-label="Navegação do slider" className={styles.slider__container_labels}>
                                 {
+                                    crews &&
                                     crews.map( (item, index) => (
                                         <>
                                         <li 
                                             className={currentSliderIndex === index ? styles.active : ''} 
-                                            onClick={({target}) => handleMoveSlider(target, index)} 
-                                            key={index}
+                                            onClick={() => handleMoveSlider(index)} 
+                                            key={item.name}
                                         >
                                             <button 
                                                 aria-current={currentSliderIndex === index}
@@ -95,16 +104,4 @@ export default function Crew({crews}) {
         </div>
         </>
     )
-}
-
-export const getStaticProps: GetStaticProps = async () => {
-
-    const response = await api.get('api/crew')
-    const crews: ICrew[] = await response.data
-
-    return {
-        props: {
-            crews
-        }
-    }
 }

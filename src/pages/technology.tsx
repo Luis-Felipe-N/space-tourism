@@ -1,10 +1,12 @@
 /* eslint-disable @next/next/no-img-element */
 import axios from 'axios'
 import { GetStaticProps } from 'next'
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Header } from '../components/Header'
 import { api } from '../services/api'
 import styles from '../styles/pages/technology.module.scss'
+
+import { technologyJson } from '../../db.json'
 
 interface ITechnology {
     name: string;
@@ -16,22 +18,25 @@ interface ITechnology {
     description: string
 }
 
-interface ITechnologyProps {
-    technologies: ITechnology[];
-}
-
-export default function Technology({technologies}: ITechnologyProps) {
+export default function Technology() {
     
     const [ currentTechnology, setCurrentTechnology ] = useState<ITechnology>()
+    const [ technologies, setTechnologies ] = useState<ITechnology[]>()
     const [ currentSliderIndex, setCurrentSliderIndex ] = useState(0)
 
-    function handleMoveSlider( target: any, index: number ) {
+    function handleMoveSlider( index: number ) {
         setCurrentSliderIndex(index)
     }
 
     useEffect(() => {
-        const technology = technologies[currentSliderIndex]
+        setTechnologies(technologyJson)
+    }, [])
+
+    useEffect(() => {
+        if( technologies ) {
+            const technology = technologies[currentSliderIndex]
         setCurrentTechnology(technology)
+        }
     },[currentSliderIndex, technologies])
 
     return (
@@ -49,11 +54,12 @@ export default function Technology({technologies}: ITechnologyProps) {
                     <div className={styles.technology__content} >
                         <ul>
                             {
+                                technologies &&
                                 technologies.map( (item, index) => (
                                     <li 
                                         className={currentSliderIndex === index ? styles.active : ''} 
                                         aria-current={currentSliderIndex === index}
-                                        onClick={({target}) => handleMoveSlider(target, index)} 
+                                        onClick={({target}) => handleMoveSlider(index)} 
                                         key={index}
                                     >
                                         <button aria-label={`Item ${index + 1} do carrossel`} >
@@ -87,16 +93,4 @@ export default function Technology({technologies}: ITechnologyProps) {
             </main>
         </div>
     )
-}
-
-export const getStaticProps: GetStaticProps = async () => {
-
-    const response = await api.get('api/technology')
-    const technologies: ITechnology[] = await response.data
-
-    return {
-        props: {
-            technologies
-        }
-    }
 }

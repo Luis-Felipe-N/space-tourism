@@ -1,3 +1,5 @@
+import { NextApiRequest, NextApiResponse } from "next"
+
 const crew = [
         {
           "name": "Douglas Hurley",
@@ -37,6 +39,6 @@ const crew = [
         }
       ]
 
-export default function handle(req, res) {
+export default function handle(req: NextApiRequest, res: NextApiResponse) {
     res.status(200).json(crew)
 }

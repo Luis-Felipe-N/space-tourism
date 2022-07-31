@@ -1,3 +1,5 @@
+import { NextApiRequest, NextApiResponse } from "next"
+
 const destinations = [
     {
       "slug": 'moon',
@@ -45,7 +47,7 @@ const destinations = [
     }
 ]
 
-export default function handle(req, res) {
+export default function handle(req: NextApiRequest, res: NextApiResponse) {
     const { slug } = req.query
 
     const destination = destinations.filter( destination => destination.slug === slug)[0]

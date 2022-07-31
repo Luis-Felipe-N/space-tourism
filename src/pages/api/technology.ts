@@ -1,3 +1,5 @@
+import { NextApiRequest, NextApiResponse } from "next"
+
 const technology = [
     {
       "name": "Foguete",
@@ -27,6 +29,6 @@ const technology = [
       "description": "Uma cápsula espacial é uma espaçonave freqüentemente tripulada que usa uma cápsula de reentrada de corpo cego para reentrar na atmosfera da Terra sem asas. Nossa cápsula é onde você passará seu tempo durante o vôo. Inclui um ginásio espacial, cinema e muitas outras actividades para o manter entretido."
     }
 ]
-export default function handle(req, res) {
+export default function handle(req: NextApiRequest, res: NextApiResponse) {
     res.status(200).json(technology)
 }

@@ -4,27 +4,30 @@ import Head from 'next/head'
 import { NavLink } from '../../components/NavLink'
 import styles from '../../styles/pages/destination.module.scss'
 import { useEffect, useState } from 'react'
-import { GetStaticPaths, GetStaticProps } from 'next'
 import { Header } from '../../components/Header'
-import axios from 'axios'
-import { api } from '../../services/api'
-
+import { destinationJson } from '../../../db.json'
 
 interface IDestination {
+    slug: string;
     name: string,
     images: {
         png: string
+        webp: string;
     },
     description: string,
     distance: string,
     travel: string
 }
 
-interface IDestinationProps {
-    destination: IDestination
-}
+export default function Destionation() {
+    const [destination, setDestination] = useState<IDestination>()
 
-export default function Destionation({destination}: IDestinationProps) {
+    const {slug} = useRouter().query
+
+    useEffect(() => {
+        const tempDestination = destinationJson.filter(destination => destination.slug === slug)[0]
+        setDestination(tempDestination)
+    }, [slug])
 
     return (
         <>
@@ -42,7 +45,8 @@ export default function Destionation({destination}: IDestinationProps) {
                         Selecione seu destino
                     </h1>
                 </header>                    
-                <section className={styles.destination__container}>
+                { destination && (
+                    <section className={styles.destination__container}>
                     <Image 
                         title={destination.name}
                         src={destination.images.png}
@@ -91,36 +95,9 @@ export default function Destionation({destination}: IDestinationProps) {
                         </div>
                     </div>
                 </section>
+                )}
            </main>
         </div>
         </>
     )
-}
-
-export const getStaticPaths: GetStaticPaths = () => {
-    const destinations = ['moon', 'mars', 'europa', 'titan']
-    const paths = destinations.map( destination => ({params: {slug: destination}}))
-
-    return {
-        paths,
-        fallback: false
-    }
-}
-
-export const getStaticProps: GetStaticProps = async ({params}) => {
-    const {slug} = params
-    const response = await api.get(`api/destinations/${slug}`)
-    const destination = await response.data
-
-    if (destination) {
-        return {
-            props: {
-                destination
-            }
-        }
-    } else {
-        return {
-            notFound: true
-        }
-    }
 }
